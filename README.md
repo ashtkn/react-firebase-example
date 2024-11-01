@@ -39,7 +39,7 @@ npm run dev
 
 ## Deployment
 
-### Next.js app
+### React app
 
 ```sh
 pnpm run build
