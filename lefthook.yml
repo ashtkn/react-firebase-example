@@ -1,0 +1,51 @@
+pre-commit:
+  parallel: true
+  commands:
+    format:
+      glob: '**/*'
+      run: npm run format {staged_files}
+      stage_fiexed: true
+
+    tsc-common:
+      glob: 'packages/common/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm common lint:tsc
+      stage_fiexed: true
+    eslint-common:
+      glob: 'packages/common/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm common lint:eslint
+      stage_fiexed: true
+    prettier-common:
+      glob: 'packages/common/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm common lint:prettier
+      stage_fiexed: true
+
+    tsc-functions:
+      glob: 'apps/functions/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm functions lint:tsc
+      stage_fiexed: true
+    eslint-functions:
+      glob: 'apps/functions/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm functions lint:eslint
+      stage_fiexed: true
+    prettier-functions:
+      glob: 'apps/functions/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm functions lint:prettier
+      stage_fiexed: true
+
+    tsc-web:
+      glob: 'apps/web/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm web lint:tsc
+      stage_fiexed: true
+    eslint-web:
+      glob: 'apps/web/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm web lint:eslint
+      stage_fiexed: true
+    prettier-web:
+      glob: 'apps/web/src/**/*.{js,ts,jsx,tsx}'
+      run: pnpm web lint:prettier
+      stage_fiexed: true
+
+    fmt-terraform:
+      glob: 'terraform/**/*.tf'
+      run: terraform fmt {staged_files}
+      stage_fiexed: true

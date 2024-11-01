@@ -1,0 +1,33 @@
+name: Run @react-firebase-example/terraform lint
+on:
+  push:
+    paths:
+      - .github/workflows/**
+      - terraform/**
+jobs:
+  lint:
+    name: Run lint
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@master
+
+      - name: Setup terraform
+        uses: hashicorp/setup-terraform@v3
+
+      - name: Run terraform init
+        run: |
+          cd terraform
+          terraform init
+
+      - name: Check format of Terraform files
+        run: |
+          cd terraform
+          terraform fmt -check -recursive
+
+      - name: Validate Terraform files
+        run: |
+          cd terraform
+          terraform validate

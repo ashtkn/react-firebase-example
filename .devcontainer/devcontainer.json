@@ -1,0 +1,16 @@
+{
+	"name": "Node.js & TypeScript",
+	"build": { "dockerfile": "Dockerfile" },
+	"forwardPorts": [5173],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"editorconfig.editorconfig",
+				"dbaeumer.vscode-eslint",
+				"github.vscode-github-actions",
+				"ms-azuretools.vscode-docker",
+				"streetsidesoftware.code-spell-checker"
+			]
+		}
+	}
+}

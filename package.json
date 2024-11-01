@@ -1,0 +1,38 @@
+{
+  "name": "react-firebase-example",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "install": "lefthook install",
+    "web": "pnpm -F \"web\"",
+    "functions": "pnpm -F \"functions\"",
+    "common": "pnpm -F \"common\"",
+    "dev": "turbo run dev --no-cache --parallel --continue",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "lint:fix": "turbo run lint:fix",
+    "clean": "turbo run clean && rimraf node_modules",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "eslint": "8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.0",
+    "lefthook": "^1.8.2",
+    "prettier": "^3.3.2",
+    "rimraf": "^5.0.7",
+    "turbo": "^2.0.4"
+  },
+  "engines": {
+    "node": ">=22",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.12.1"
+}
