@@ -1,7 +1,7 @@
 import type { Request, Response } from 'express'
 import { validationResult } from 'express-validator'
 
-exports.handle = async (req: Request, res: Response) => {
+export const handle = async (req: Request, res: Response) => {
   try {
     const errors = validationResult(req)
     if (!errors.isEmpty()) {

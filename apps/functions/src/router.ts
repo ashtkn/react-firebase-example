@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
 import { check } from 'express-validator'
+import PromiseRouter from 'express-promise-router'
 
-const router = require('express-promise-router')()
+import { handle as healthHandle } from './api/health'
 
-router.post(
-  '/health',
-  [check('message').exists()],
-  require('./api/health/test').handle,
-)
+const router = PromiseRouter()
+
+router.post('/health', [check('message').exists()], healthHandle)
 
 export default router
