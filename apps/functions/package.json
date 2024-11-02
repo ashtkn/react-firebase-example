@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "firebase emulators:start",
     "build": "tsc && resolve-tspaths",
-    "emulator": "firebase emulators:start",
     "lint:tsc": "tsc --noEmit",
     "lint:eslint": "eslint --ext .js,.ts .",
     "lint:prettier": "prettier --check src",
