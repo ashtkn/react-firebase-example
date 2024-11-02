@@ -17,7 +17,10 @@ const auth = getAuth(app)
 
 if (import.meta.env.DEV) {
   console.info('Using Firebase Authentication Emulator')
-  connectAuthEmulator(auth, 'http://127.0.0.1:9099')
+  connectAuthEmulator(
+    auth,
+    import.meta.env.VITE_AUTH_API_ENDPOINT ?? 'http://127.0.0.1:9099',
+  )
 }
 
 export { auth }
