@@ -13,3 +13,11 @@ export const callPrivateApi = async (bearerToken: string) => {
   })
   console.log(await response.json())
 }
+
+export const callAdminApi = async (bearerToken: string) => {
+  console.log('Calling Admin API')
+  const response = await fetch(`${API_ENDPOINT}/admin`, {
+    headers: { Authorization: `Bearer ${bearerToken}` },
+  })
+  console.log(await response.json())
+}

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react'
 import { auth } from '../lib/firebase'
 import { signInWithEmailAndPassword } from 'firebase/auth'
-import { callPublicApi, callPrivateApi } from '../lib/api'
+import { callPublicApi, callPrivateApi, callAdminApi } from '../lib/api'
 
 const AuthenticationTest: React.FC = () => {
   const [email] = useState('xxx@example.com')
@@ -38,11 +38,20 @@ const AuthenticationTest: React.FC = () => {
       })
   }, [bearerToken])
 
+  const onCallAdminApiButtonPressed = useCallback(() => {
+    callAdminApi(bearerToken)
+      .then()
+      .catch((err) => {
+        console.error(err)
+      })
+  }, [bearerToken])
+
   return (
     <div>
       <button onClick={onCallPublicApiButtonPressed}>Call Public API</button>
       <button onClick={onSignInButtonPressed}>SignIn</button>
       <button onClick={onCallPrivateApiButtonPressed}>Call Private API</button>
+      <button onClick={onCallAdminApiButtonPressed}>Call Admin API</button>
     </div>
   )
 }

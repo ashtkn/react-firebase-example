@@ -1,6 +1,8 @@
 import type { Request, Response, NextFunction } from 'express'
 import type { DecodedIdToken } from 'firebase-admin/auth'
 
+import { auth } from '~/lib/firebase'
+
 export const hasAdminRole = async (
   req: Request,
   res: Response,
@@ -11,7 +13,10 @@ export const hasAdminRole = async (
     return res.status(401).json({ message: 'Unauthorized' })
   }
 
-  // TODO: 実装
-  // console.log(`UserID: ${user.uid}`)
+  const { customClaims } = await auth.getUser(user.uid)
+  if (!customClaims || customClaims.role !== 'admin') {
+    return res.status(401).json({ message: 'Unauthorized' })
+  }
+
   next()
 }
