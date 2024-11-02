@@ -58,9 +58,6 @@ importers:
       firebase-functions:
         specifier: ^6.1.0
         version: 6.1.0(firebase-admin@12.7.0)
-      resolve-tspaths:
-        specifier: ^0.8.22
-        version: 0.8.22(typescript@5.3.3)
     devDependencies:
       '@types/cors':
         specifier: ^2.8.17
@@ -74,6 +71,9 @@ importers:
       '@types/request-promise':
         specifier: ^4.1.51
         version: 4.1.51
+      resolve-tspaths:
+        specifier: ^0.8.22
+        version: 0.8.22(typescript@5.3.3)
       typescript:
         specifier: 5.3.3
         version: 5.3.3
