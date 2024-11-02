@@ -15,7 +15,7 @@
       ],
       "predeploy": [
         "cd apps/functions && npm run lint:eslint",
-        "cd apps/functions && npm run pre-build"
+        "cd apps/functions && npm run build"
       ]
     }
   ],
